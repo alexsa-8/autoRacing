@@ -1,16 +1,17 @@
 package AutoRacing;
 
 public class Buses extends Car implements Competing{
-    int pitStop = 0;
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
     public double getLapTime() {
         return lapTime;
     }
 
-    public Buses(String mark, String model, double engineVolume, double startMoving, double finishMovement, int maxSpeed) {
-        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed);
+    public Buses(String mark, String model, double engineVolume, double startMoving, double finishMovement,
+                 int maxSpeed, int pitstop) {
+        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop);
     }
+
     public void machineInformation() {
         System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: " + getEngineVolume());
     }
@@ -27,13 +28,13 @@ public class Buses extends Car implements Competing{
 
     @Override
     public void getPitStop() {
-        System.out.println("Количество пит-стопов: " + pitStop);
+        System.out.println("Количество пит-стопов: " + getPitstop());
     }
 
 
     @Override
     public void getBestLapTime() {
-        System.out.println("Лучшее время круга: " + getLapTime() + " минут");
+        System.out.println("Лучшее время круга: " + getLapTime() + " минут.");
     }
 
     @Override

@@ -2,15 +2,17 @@ package AutoRacing;
 
 import java.util.Objects;
 
-public abstract class Car {
+public abstract class Car implements Competing {
     private final String mark;
     private final String model;
     private final double engineVolume;
     private final double startMoving;
     private final double finishMovement;
     private final int maxSpeed;
+    private final int pitstop;
 
-    public Car(String mark, String model, double engineVolume, double startMoving, double finishMovement, int maxSpeed) {
+    public Car(String mark, String model, double engineVolume, double startMoving, double finishMovement, int maxSpeed,
+               int pitstop) {
         this.mark = Objects.requireNonNullElse(mark, "default");
         this.model = Objects.requireNonNullElse(model, "default");
         this.engineVolume = Objects.requireNonNullElse(engineVolume, 0.0);
@@ -18,6 +20,7 @@ public abstract class Car {
         this.finishMovement = Objects.requireNonNullElse(finishMovement, 0.0);
         //this.circleLength = circleLength;
         this.maxSpeed = Objects.requireNonNullElse(maxSpeed, 0);
+        this.pitstop = Objects.requireNonNullElse(pitstop, 0);
     }
 
     public abstract void startMoving();
@@ -54,5 +57,9 @@ public abstract class Car {
 
     public int getTime() {
         return 60;
+    }
+
+    public int getPitstop() {
+        return pitstop;
     }
 }
