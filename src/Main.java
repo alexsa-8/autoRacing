@@ -104,21 +104,21 @@ public class Main {
         liaz.getPitstop();
         liaz.getBestLapTime();
         liaz.getMaximumSpeed();
-        Driver<PassengerCars> alex = new Driver<>("Alex", "B", 3);
-        alex.controlMachine(lada);
-        alex.startMoving(lada);
-        alex.stop(lada);
-        alex.refuelCar(lada);
-        Driver<Trucks> bob = new Driver<>("Bob","C",5);
-        bob.controlMachine(mercedes1);
-        bob.startMoving(mercedes1);
-        bob.stop(mercedes1);
-        bob.refuelCar(mercedes1);
-        Driver<Buses> maks = new Driver<>("Maks","D",4);
-        maks.controlMachine(liaz);
-        maks.startMoving(liaz);
-        maks.stop(liaz);
-        maks.refuelCar(liaz);
+//        Driver<PassengerCars> alex = new DriverB<>("Alex", "B", 3);
+//        alex.controlMachine(lada);
+//        alex.startMoving(lada);
+//        alex.stop(lada);
+//        alex.refuelCar(lada);
+//        Driver<Trucks> bob = new DriverC<>("Bob","C",5);
+//        bob.controlMachine(mercedes1);
+//        bob.startMoving(mercedes1);
+//        bob.stop(mercedes1);
+//        bob.refuelCar(mercedes1);
+//        Driver<Buses> maks = new DriverD<>("Maks","D",4);
+//        maks.controlMachine(liaz);
+//        maks.startMoving(liaz);
+//        maks.stop(liaz);
+//        maks.refuelCar(liaz);
 
     }
 }

@@ -3,13 +3,13 @@ package AutoRacing;
 import java.util.Objects;
 
 public abstract class Car implements Competing {
-    private final String mark;
+    private static String mark;
     private final String model;
     private final double engineVolume;
-    private final double startMoving;
-    private final double finishMovement;
+    private static double startMoving;
+    private static double finishMovement;
     private final int maxSpeed;
-    private final int pitstop;
+    private static int pitstop;
 
     public Car(String mark, String model, double engineVolume, double startMoving, double finishMovement, int maxSpeed,
                int pitstop) {
@@ -27,7 +27,7 @@ public abstract class Car implements Competing {
 
     public abstract void finishMovement();
 
-    public String getMark() {
+    public static String getMark() {
         return mark;
     }
 
@@ -39,11 +39,11 @@ public abstract class Car implements Competing {
         return engineVolume;
     }
 
-    public double getStartMoving() {
+    public static double getStartMoving() {
         return startMoving;
     }
 
-    public double getFinishMovement() {
+    public static double getFinishMovement() {
         return finishMovement;
     }
 
@@ -59,7 +59,7 @@ public abstract class Car implements Competing {
         return 60;
     }
 
-    public int getPitstop() {
+    public static int getPitstop() {
         return pitstop;
     }
 }

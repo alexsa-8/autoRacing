@@ -3,10 +3,6 @@ package AutoRacing;
 public class Trucks extends Car implements Competing{
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
-    public double getLapTime() {
-        return lapTime;
-    }
-
     public Trucks(String mark, String model, double engineVolume, double startMoving, double finishMovement,
                   int maxSpeed, int pitstop) {
         super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop);
@@ -14,6 +10,10 @@ public class Trucks extends Car implements Competing{
 
     public void machineInformation() {
         System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: " + getEngineVolume());
+    }
+
+    public double getLapTime() {
+        return lapTime;
     }
 
     @Override
