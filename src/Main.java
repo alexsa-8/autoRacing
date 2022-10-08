@@ -13,22 +13,22 @@ public class Main {
         PassengerCars lada = new PassengerCars("Лада", "A12", 1.7, 8, 6,
                 120, 3);
         Trucks mercedes1 = new Trucks("Мерседес", "C3", 3.0, 10, 7,
-                140, 2);
+                140, 2, 3);
         Trucks opel1 = new Trucks("Опель", "U45", 3.1, 11, 8,
-                130, 2);
+                130, 2, 5);
         Trucks renault1 = new Trucks("Рено", "T25", 3.2, 12, 8,
-                120, 2);
+                120, 2, 13);
         Trucks kamaz = new Trucks("Камаз", "A5", 3.5, 9, 6,
-                130, 2);
+                130, 2, 8);
 
         Buses mercedes2 = new Buses("Мерседес", "DU1", 3.0, 15, 10,
-                120, 1);
+                120, 1, 35);
         Buses opel2 = new Buses("Мерседес", "L58", 3.2, 12, 8,
-                125, 1);
+                125, 1, 40);
         Buses renault2 = new Buses("Мерседес", "FZ1", 3.1, 13, 8,
-                130, 1);
+                130, 1, 60);
         Buses liaz = new Buses("Лиаз", "A2", 2.9, 16, 10,
-                110, 1);
+                110, 1, 25);
 
 
 

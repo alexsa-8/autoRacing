@@ -1,6 +1,7 @@
 package AutoRacing;
 
-public class Buses extends Transport implements Competing{
+public class Buses extends Transport implements Competing {
+    public final int numberOfPassengers;
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
     public double getLapTime() {
@@ -8,12 +9,14 @@ public class Buses extends Transport implements Competing{
     }
 
     public Buses(String mark, String model, double engineVolume, double startMoving, double finishMovement,
-                 int maxSpeed, int pitstop) {
+                 int maxSpeed, int pitstop, int numberOfPassengers) {
         super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop);
+        this.numberOfPassengers = numberOfPassengers;
     }
 
     public void machineInformation() {
-        System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: " + getEngineVolume());
+        System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: "
+                + getEngineVolume() + ", количество пассажиров: " + getNumberOfPassengers());
     }
 
     @Override
@@ -40,5 +43,9 @@ public class Buses extends Transport implements Competing{
     @Override
     public void getMaximumSpeed() {
         System.out.println("Максимальная скорость: " + getMaxSpeed() + " км/ч");
+    }
+
+    public int getNumberOfPassengers() {
+        return numberOfPassengers;
     }
 }

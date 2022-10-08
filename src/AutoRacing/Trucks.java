@@ -1,15 +1,18 @@
 package AutoRacing;
 
-public class Trucks extends Transport implements Competing{
+public class Trucks extends Transport implements Competing {
+    private final double tonnage;
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
     public Trucks(String mark, String model, double engineVolume, double startMoving, double finishMovement,
-                  int maxSpeed, int pitstop) {
+                  int maxSpeed, int pitstop, double tonnage) {
         super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop);
+        this.tonnage = tonnage;
     }
 
     public void machineInformation() {
-        System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: " + getEngineVolume());
+        System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: "
+                + getEngineVolume() + ", грузоподъёмность: " + getTonnage() + " т.");
     }
 
     public double getLapTime() {
@@ -40,5 +43,9 @@ public class Trucks extends Transport implements Competing{
     @Override
     public void getMaximumSpeed() {
         System.out.println("Максимальная скорость: " + getMaxSpeed() + " км/ч");
+    }
+
+    public double getTonnage() {
+        return tonnage;
     }
 }
