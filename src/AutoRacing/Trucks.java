@@ -1,6 +1,6 @@
 package AutoRacing;
 
-public class Trucks extends Car implements Competing{
+public class Trucks extends Transport implements Competing{
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
     public Trucks(String mark, String model, double engineVolume, double startMoving, double finishMovement,

@@ -1,6 +1,6 @@
 package AutoRacing;
 
-public class Buses extends Car implements Competing{
+public class Buses extends Transport implements Competing{
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
     public double getLapTime() {
