@@ -1,11 +1,15 @@
 package AutoRacing;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Objects;
+
 public class PassengerCars extends Transport implements Competing {
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
     public PassengerCars(String mark, String model, double engineVolume, double startMoving, double finishMovement,
-                         int maxSpeed, int pitstop) {
-        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop);
+                         int maxSpeed, int pitstop, String rubber) {
+        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop, rubber);
     }
 
     public void machineInformation() {
@@ -16,10 +20,25 @@ public class PassengerCars extends Transport implements Competing {
         return lapTime;
     }
 
+    @Override
+    public void passDiagnostics() {
+        Calendar calendar = new GregorianCalendar();
+        System.out.print(", диагностика: ");
+        try {
+            if ((Objects.equals(rubber, "зимняя") && calendar.get(Calendar.MONTH) < 3 && calendar.get(Calendar.MONTH) > 10)
+                    ||(Objects.equals(rubber, "летняя") && calendar.get(Calendar.MONTH) >= 3 && calendar.get(Calendar.MONTH) <= 10)) {
+                System.out.print("всё в порядке");
+            }
+        } catch (Exception e) {
+            System.out.print("пройти диагностику");
+            throw new RuntimeException(e);
+        }
+    }
+
 
     @Override
     public void startMoving() {
-        System.out.print(", разгон 100 км/ч за " + getStartMoving() + " сек.");
+        System.out.print(", \nразгон 100 км/ч за " + getStartMoving() + " сек.");
     }
 
     @Override
@@ -40,6 +59,6 @@ public class PassengerCars extends Transport implements Competing {
 
     @Override
     public void getMaximumSpeed() {
-        System.out.println("Максимальная скорость: " + getMaxSpeed() + " км/ч");
+        System.out.println("Максимальная скорость: " + getMaxSpeed() + " км/ч.");
     }
 }

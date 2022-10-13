@@ -1,18 +1,38 @@
 package AutoRacing;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Objects;
+
 public class Trucks extends Transport implements Competing {
     private final double tonnage;
     double lapTime = getTime() * getCircleLength() / getMaxSpeed();
 
     public Trucks(String mark, String model, double engineVolume, double startMoving, double finishMovement,
-                  int maxSpeed, int pitstop, double tonnage) {
-        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop);
+                  int maxSpeed, int pitstop, String rubber, double tonnage) {
+        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop, rubber);
         this.tonnage = tonnage;
     }
 
     public void machineInformation() {
-        System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: "
+        System.out.println("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: "
                 + getEngineVolume() + ", грузоподъёмность: " + getTonnage() + " т.");
+    }
+
+    @Override
+    public void passDiagnostics() {
+        Calendar calendar = new GregorianCalendar();
+        System.out.print("Диагностика: ");
+        try {
+            if ((Objects.equals(rubber, "зимняя") && calendar.get(Calendar.MONTH) < 3 && calendar.get(Calendar.MONTH) > 10)
+                    ||(Objects.equals(rubber, "летняя") && calendar.get(Calendar.MONTH) >= 3 && calendar.get(Calendar.MONTH) <= 10)) {
+                System.out.print("всё в порядке");
+            }
+        } catch (Exception e) {
+            System.out.print("пройти диагностику");
+            throw new RuntimeException(e);
+        }
+
     }
 
     public double getLapTime() {
@@ -21,7 +41,7 @@ public class Trucks extends Transport implements Competing {
 
     @Override
     public void startMoving() {
-        System.out.print(", разгон 100 км/ч за " + getStartMoving() + " сек.");
+        System.out.print("Разгон 100 км/ч за " + getStartMoving() + " сек.");
     }
 
     @Override
@@ -37,12 +57,12 @@ public class Trucks extends Transport implements Competing {
 
     @Override
     public void getBestLapTime() {
-        System.out.println("Лучшее время круга: " + getLapTime() + " минут.");
+        System.out.print("Лучшее время круга: " + getLapTime() + " минут.");
     }
 
     @Override
     public void getMaximumSpeed() {
-        System.out.println("Максимальная скорость: " + getMaxSpeed() + " км/ч");
+        System.out.println(" Максимальная скорость: " + getMaxSpeed() + " км/ч.");
     }
 
     public double getTonnage() {

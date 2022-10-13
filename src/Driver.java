@@ -35,8 +35,17 @@ public abstract class Driver<T extends Transport & Competing> {
         return naimDriver;
     }
 
-    public String getDriverLicenseCategory() {
-        return driverLicenseCategory;
+    public void getDriverLicenseCategory() {
+        System.out.print("Водитель " + naimDriver);
+        try {
+            if (driverLicenseCategory != null || driverLicenseCategory.length()!=0 || driverLicenseCategory.length()<2) {
+                System.out.println(" у вас права катигории: " + driverLicenseCategory);
+            }
+        } catch (Exception e) {
+            System.out.println(" вам необходимо указать тип прав!");
+            throw new RuntimeException(e);
+        }
+
     }
 
     public int getExperience() {

@@ -9,19 +9,25 @@ public class Buses extends Transport implements Competing {
     }
 
     public Buses(String mark, String model, double engineVolume, double startMoving, double finishMovement,
-                 int maxSpeed, int pitstop, int numberOfPassengers) {
-        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop);
+                 int maxSpeed, int pitstop, String rubber, int numberOfPassengers) {
+        super(mark, model, engineVolume, startMoving, finishMovement, maxSpeed, pitstop, rubber);
         this.numberOfPassengers = numberOfPassengers;
     }
 
     public void machineInformation() {
-        System.out.print("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: "
-                + getEngineVolume() + ", количество пассажиров: " + getNumberOfPassengers());
+        System.out.println("Марка: " + getMark() + ", модель: " + getModel() + ", объём двигателя: "
+                + getEngineVolume() + ", количество пассажиров: " + getNumberOfPassengers()+",");
+    }
+
+    @Override
+    public void passDiagnostics() {
+        System.out.println("Автобус " + getMark() + " диагностика не требуется.");
+
     }
 
     @Override
     public void startMoving() {
-        System.out.print(", разгон 100 км/ч за " + getStartMoving() + " сек.");
+        System.out.print("разгон 100 км/ч за " + getStartMoving() + " сек.");
     }
 
     @Override
@@ -42,7 +48,7 @@ public class Buses extends Transport implements Competing {
 
     @Override
     public void getMaximumSpeed() {
-        System.out.println("Максимальная скорость: " + getMaxSpeed() + " км/ч");
+        System.out.println("Максимальная скорость: " + getMaxSpeed() + " км/ч.");
     }
 
     public int getNumberOfPassengers() {

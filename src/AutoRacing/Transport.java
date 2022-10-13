@@ -9,9 +9,10 @@ public abstract class Transport implements Competing {
     private final double finishMovement;
     private final int maxSpeed;
     private static int pitstop;
+    String rubber;
 
-    public Transport(String mark, String model, double engineVolume, double startMoving, double finishMovement, int maxSpeed,
-               int pitstop) {
+    public Transport(String mark, String model, double engineVolume, double startMoving, double finishMovement,
+                     int maxSpeed, int pitstop, String rubber) {
         this.mark = Objects.requireNonNullElse(mark, "default");
         this.model = Objects.requireNonNullElse(model, "default");
         this.engineVolume = Objects.requireNonNullElse(engineVolume, 0.0);
@@ -19,8 +20,10 @@ public abstract class Transport implements Competing {
         this.finishMovement = Objects.requireNonNullElse(finishMovement, 0.0);
         this.maxSpeed = Objects.requireNonNullElse(maxSpeed, 0);
         this.pitstop = Objects.requireNonNullElse(pitstop, 0);
+        this.rubber = Objects.requireNonNullElse(rubber,"default");
     }
 
+    public abstract void passDiagnostics();
     public abstract void startMoving();
 
     public abstract void finishMovement();
