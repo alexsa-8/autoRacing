@@ -1,4 +1,5 @@
-package AutoRacing;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Transport implements Competing {
@@ -10,6 +11,9 @@ public abstract class Transport implements Competing {
     private final int maxSpeed;
     private static int pitstop;
     String rubber;
+    private final List<Driver<?>> drivers = new ArrayList<>();
+    private final List<Mechanic<?>> mechanics = new ArrayList<>();
+    private final List<Sponsor<?>> sponsors = new ArrayList<>();
 
     public Transport(String mark, String model, double engineVolume, double startMoving, double finishMovement,
                      int maxSpeed, int pitstop, String rubber) {
@@ -27,6 +31,15 @@ public abstract class Transport implements Competing {
     public abstract void startMoving();
 
     public abstract void finishMovement();
+    public void addDriver(Driver<?> driver){
+        drivers.add(driver);
+    }
+    public void addMechanic(Mechanic<?> mechanic){
+        drivers.add(mechanic);
+    }
+    public void addSponsor(Sponsor<?> sponsor){
+        drivers.add(sponsor);
+    }
 
     public String getMark() {
         return mark;
@@ -62,5 +75,15 @@ public abstract class Transport implements Competing {
 
     public int getPitstop() {
         return pitstop;
+    }
+
+    public abstract List<Driver<?>> getDrivers();
+
+    public List<Mechanic<?>> getMechanics() {
+        return null;
+    }
+
+    public List<Sponsor<?>> getSponsors() {
+        return null;
     }
 }

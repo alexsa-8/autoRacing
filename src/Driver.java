@@ -1,11 +1,8 @@
-import AutoRacing.Competing;
-import AutoRacing.Transport;
-
 public abstract class Driver<T extends Transport & Competing> {
-    private final String naimDriver;
-    private final String driverLicenseCategory;
+    private String naimDriver;
+    private String driverLicenseCategory;
     int experience;
-    private final T car;
+    private T car;
 
     public Driver(String naimDriver, String driverLicenseCategory, int experience, T car) {
         this.naimDriver = naimDriver;
@@ -14,10 +11,16 @@ public abstract class Driver<T extends Transport & Competing> {
         this.car = car;
     }
 
+    protected Driver() {
+    }
+
+
     public void controlMachine() {
         System.out.println("Водитель " + getNaimDriver() + " управляет автомобилем "
                 + car.getMark() + " и будет участвовать в заезде.");
     }
+
+    protected abstract String getNameSponsor();
 
     public void startMoving() {
         System.out.println("Стартует " + car.getMark() + " " + car.getModel());
@@ -54,5 +57,19 @@ public abstract class Driver<T extends Transport & Competing> {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public T getCar() {
+        return car;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "naimDriver='" + naimDriver + '\'' +
+                ", driverLicenseCategory='" + driverLicenseCategory + '\'' +
+                ", experience=" + experience +
+                ", car=" + car +
+                '}';
     }
 }

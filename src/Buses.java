@@ -1,4 +1,4 @@
-package AutoRacing;
+import java.util.List;
 
 public class Buses extends Transport implements Competing {
     public final int numberOfPassengers;
@@ -33,6 +33,11 @@ public class Buses extends Transport implements Competing {
     @Override
     public void finishMovement() {
         System.out.println(", при скорости 100 км/ч останавливается за " + getFinishMovement() + " сек.");
+    }
+
+    @Override
+    public List<Driver<?>> getDrivers() {
+        return null;
     }
 
     @Override
